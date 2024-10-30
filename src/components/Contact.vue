@@ -1,5 +1,5 @@
 <template>
-  <section class="contact">
+  <sections class="contact">
     <div class="contact-details">
       <h2>Connect with me</h2>
       <ul>
@@ -42,89 +42,10 @@
         </li>
       </ul>
     </div>
+    </sections>
 
-    <!-- WhatsApp Message Form -->
-    <div class="whatsapp-message-form">
-      <h3>Send a WhatsApp Message</h3>
-      <form @submit.prevent="sendMessage">
-        <div>
-          <label for="phoneNumber">Phone Number:</label>
-          <input
-            type="text"
-            v-model="phoneNumber"
-            id="phoneNumber"
-            placeholder="Enter recipient's phone number"
-            required
-          />
-        </div>
-        <div>
-          <label for="template">Message Template:</label>
-          <select v-model="templateName" id="template">
-            <option value="hello_world">Hello World</option>
-            <!-- Add more templates here if needed -->
-          </select>
-        </div>
-        <button type="submit">Send Message</button>
-      </form>
-      <div v-if="response">
-        <h2>Response</h2>
-        <pre>{{ response }}</pre>
-      </div>
-      <div v-if="error">
-        <h2>Error</h2>
-        <pre>{{ error }}</pre>
-      </div>
-    </div>
-  </section>
+    
 </template>
-
-<script>
-import axios from 'axios';
-
-export default {
-  name: 'Contact',
-  data() {
-    return {
-      phoneNumber: '',
-      templateName: 'hello_world',
-      response: null,
-      error: null,
-    };
-  },
-  methods: {
-    async sendMessage() {
-      try {
-        const res = await axios.post(
-          'https://graph.facebook.com/v20.0/413512821853715/messages',
-          {
-            messaging_product: 'whatsapp',
-            to: this.phoneNumber,
-            type: 'template',
-            template: {
-              name: this.templateName,
-              language: {
-                code: 'en_US',
-              },
-            },
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.WHATSAPP_API_KEY}`,
-              'Content-Type': 'application/json',
-            },
-          }
-        );
-        this.response = res.data;
-        this.error = null; // Reset error if message sent successfully
-      } catch (error) {
-        this.error = error.response ? error.response.data : error.message;
-        this.response = null; // Reset response if error occurs
-      }
-    },
-  },
-};
-</script>
-
 <style scoped>
 html,
 body {

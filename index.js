@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 // Load environment variables from .env file
 dotenv.config();
 
-// Function to send a WhatsApp message via the API
+// Function to send message
 const sendWhatsAppMessage = async (phoneNumber, templateName = 'hello_world', languageCode = 'en_US') => {
   try {
     const response = await axios.post(
@@ -35,6 +35,6 @@ const sendWhatsAppMessage = async (phoneNumber, templateName = 'hello_world', la
   }
 };
 
-// Example usage of the function
-const examplePhoneNumber = '254743379990'; // recipient's phone number
+// Example
+const examplePhoneNumber = '254743379990'; // recipient phone number
 sendWhatsAppMessage(examplePhoneNumber);
