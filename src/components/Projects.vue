@@ -183,7 +183,7 @@ html, body {
 }
 
 .project-item {
-  background-color: #d6b26f;
+  background-color: #b37707;
   padding: 20px;
   border-radius: 10px;
   width: 300px;
@@ -200,7 +200,7 @@ html, body {
 
 .project-details h3 {
   margin: 15px 0 10px;
-  color: #00b4d8;
+  color: #092dfa;
   font-size: 1.5rem;
 }
 

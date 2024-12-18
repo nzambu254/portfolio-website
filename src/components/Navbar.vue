@@ -31,7 +31,7 @@ export default {
   display: flex;
   justify-content: center;
   background: #119ab3;
-  padding: 15px;
+  padding: 0px;
   font-weight: bold;
 }
 ul {
