@@ -3,17 +3,17 @@
     <ul>
       <li>
         <router-link to="/">
-          <h2>About</h2>
+          <h1>About</h1>
         </router-link>
       </li>
       <li>
         <router-link to="/projects">
-          <h2>My work</h2>
+          <h1>My work</h1>
         </router-link>
       </li>
       <li>
         <router-link to="/contact">
-          <h2>Contact</h2>
+          <h1>Contact</h1>
         </router-link>
       </li>
     </ul>

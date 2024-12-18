@@ -18,7 +18,7 @@
       <div class="cv-download">
         <h3>View My CV</h3>
         <a
-          href="@/src/assets/josephCV.pdf"
+          href="/josephCV.pdf"
           download="josephCV.pdf"
           target="_blank"
           rel="noopener noreferrer"
