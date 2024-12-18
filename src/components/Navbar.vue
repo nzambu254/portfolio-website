@@ -8,7 +8,7 @@
       </li>
       <li>
         <router-link to="/projects">
-          <h2>Projects</h2>
+          <h2>My work</h2>
         </router-link>
       </li>
       <li>
