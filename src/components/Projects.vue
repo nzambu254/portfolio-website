@@ -14,19 +14,6 @@
         </a>.
       </p>
 
-      <!-- CV Download Section -->
-      <div class="cv-download">
-        <h3>View My CV</h3>
-        <a
-          href="/josephCV.pdf"
-          download="josephCV.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fas fa-download"></i> Download CV
-        </a>
-      </div>
-
       <!-- Projects List -->
       <div class="projects-list">
         <div
