@@ -73,7 +73,7 @@ export default {
 .projects-title {
   text-align: center;
   font-size: 2.5rem;
-  color: #6e8ac7;
+  color: #b37707;
   margin-bottom: 3rem;
   font-weight: bold;
   position: relative;
@@ -134,7 +134,7 @@ export default {
 
 .project-details h3 {
   font-size: 1.5rem;
-  color: #6e8ac7;
+  color: #b37707;
   margin-bottom: 1rem;
 }
 
