@@ -1,41 +1,29 @@
 <template>
   <section class="projects">
-    <div class="projects-background"></div>
-    <div class="projects-content">
-      <h2>Projects</h2>
-      <p>
-        You can find more projects on my
-        <a
-          href="https://github.com/joe4780"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-github"></i> GitHub profile
-        </a>.
-      </p>
-
-      <!-- Projects List -->
-      <div class="projects-list">
-        <div
-          v-for="project in projects"
-          :key="project.id"
-          class="project-item"
-        >
+    <h2 class="projects-title">Featured Projects</h2>
+    <div class="projects-list">
+      <div
+        v-for="project in projects"
+        :key="project.id"
+        class="project-item"
+      >
+        <div class="project-image-container">
           <img
             :src="require(`@/assets/${project.image}`)"
             :alt="project.title"
             class="project-image"
           >
-          <div class="project-details">
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
-            <a
-              :href="project.link"
-              target="_blank"
-            >
-              <i class="fab fa-github"></i> View Project
-            </a>
-          </div>
+        </div>
+        <div class="project-details">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <a
+            :href="project.link"
+            target="_blank"
+            class="project-link"
+          >
+            <i class="fab fa-github"></i> View Project
+          </a>
         </div>
       </div>
     </div>
@@ -56,7 +44,7 @@ export default {
           link: "https://city-inspector-app-git-master-josephs-projects-55b96ac2.vercel.app/"
         },
         {
-          id:2,
+          id: 2,
           title: "Digiskool App",
           description: "Digiskool is a complete school management system that has all essentials needed for running a school.The application is designed to suit all education institutions below the tertiary level and provides Comprehensive and Enriched school management functions in real-time.",
           image: "digisk.jpeg",
@@ -76,137 +64,116 @@ export default {
 </script>
 
 <style scoped>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background-color: #121212; /* Background color */
-  font-family: 'Roboto', sans-serif;
-  color: #E0E0E0; /* Default text color */
+.projects {
+  padding: 4rem 2rem;
+  background-color: #0a0f1a;
+  min-height: 100vh;
 }
 
-.projects {
-  min-height: 100vh;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.projects-title {
   text-align: center;
+  font-size: 2.5rem;
+  color: #6e8ac7;
+  margin-bottom: 3rem;
+  font-weight: bold;
   position: relative;
 }
 
-.projects-background {
+.projects-title::after {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('@/assets/codespace.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.4;
-  z-index: -1;
-}
-
-.projects-content {
-  z-index: 1;
-  background-color: rgba(226, 220, 220, 0.8); /* Semi-transparent black background */
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-}
-
-.projects-content h2 {
-  margin-bottom: 1.5rem;
-  color: #00b4d8;
-  font-size: 2.5rem;
-}
-
-.projects-content p {
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-}
-
-.projects-content a {
-  color: #00b4d8;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.projects-content a:hover {
-  text-decoration: underline;
-  color: #0288d1;
-}
-
-.cv-download {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.cv-download a {
-  color: #00b4d8;
-  font-size: 1.2rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #1a1a1a;
-  padding: 10px 20px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cv-download a:hover {
-  background-color: #00b4d8;
-  color: #121212;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #6e8ac7;
 }
 
 .projects-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+  padding: 0 1rem;
 }
 
 .project-item {
-  background-color: #b37707;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  background-color: #1a2332;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+}
+
+.project-image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
 
 .project-image {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-details {
+  padding: 1.5rem;
 }
 
 .project-details h3 {
-  margin: 15px 0 10px;
-  color: #092dfa;
   font-size: 1.5rem;
+  color: #6e8ac7;
+  margin-bottom: 1rem;
 }
 
 .project-details p {
+  color: #a0aec0;
   font-size: 1rem;
-  margin-bottom: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-.project-details a {
-  color: #00b4d8;
-  text-decoration: none;
+.project-link {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.5rem;
+  color: #6e8ac7;
+  text-decoration: none;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.project-details a:hover {
-  text-decoration: underline;
-  color: #0288d1;
+.project-link:hover {
+  color: #8ba3d4;
+}
+
+@media (max-width: 768px) {
+  .projects-list {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image-container {
+    height: 250px;
+  }
+
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .project-details h3 {
+    font-size: 1.25rem;
+  }
 }
 </style>
