@@ -42,12 +42,12 @@ export default {
 ul {
   list-style: none;
   display: flex;
-  gap: 20px; /* Increased space between items */
+  gap: 15px; /* Increased space between items */
 }
 
 li {
   color: #0c0404;
-  font-size: 26px; /* Increased font size */
+  font-size: 16px; /* Increased font size */
 }
 
 a {
