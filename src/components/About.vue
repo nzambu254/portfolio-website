@@ -12,15 +12,15 @@
         </p>
         <div class="about-stats">
           <div class="stat-item">
-            <span class="stat-number">4+</span>
+            <span class="stat-number" ref="yearsExperience">0</span>
             <span class="stat-text">Years Experience</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">10+</span>
+            <span class="stat-number" ref="projectsCompleted">0</span>
             <span class="stat-text">Projects Completed</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">10+</span>
+            <span class="stat-number" ref="technicalArticles">0</span>
             <span class="stat-text">Technical Articles</span>
           </div>
         </div>
@@ -40,6 +40,30 @@
 <script>
 export default {
   name: "About",
+  mounted() {
+    this.animateCount(this.$refs.yearsExperience, 4);
+    this.animateCount(this.$refs.projectsCompleted, 10);
+    this.animateCount(this.$refs.technicalArticles, 10);
+  },
+  methods: {
+    animateCount(element, target) {
+      let start = 0;
+      const duration = 7000; // 7 seconds
+      const increment = target / (duration / 16);
+
+      const countUp = () => {
+        start += increment;
+        if (start >= target) {
+          element.textContent = target;
+        } else {
+          element.textContent = Math.floor(start);
+          requestAnimationFrame(countUp);
+        }
+      };
+
+      requestAnimationFrame(countUp);
+    },
+  },
 };
 </script>
 
@@ -86,17 +110,17 @@ export default {
   max-width: 600px;
   text-align: center;
   font-family: monospace;
-  font-size: 1.3em; /* Increased font size for monospace */
+  font-size: 1.1em; /* Reduced font size */
 }
 
 .about-content h2 {
-  font-size: 2em;
+  font-size: 1.8em; /* Slightly smaller */
   margin-bottom: 20px;
   color: #b37707;
 }
 
 .about-content p {
-  font-size: 1.2em;
+  font-size: 1em; /* Reduced font size */
   line-height: 1.6;
   margin-bottom: 20px;
 }
