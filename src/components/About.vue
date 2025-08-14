@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="about-buttons">
-          <a href="/josephCV.pdf" download class="download-cv">
+          <a href="/josephCV2025.pdf" download class="download-cv">
             <span class="button-text">Download CV</span>
             <span class="button-icon">
               <i class="fas fa-download"></i>
